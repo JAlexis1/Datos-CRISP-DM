@@ -14,4 +14,4 @@ if __name__ == "__main__":
     graphics.save()
 
     standarization = Standarization(df)
-    standarization.run()
+    standarized_df = standarization.run()
