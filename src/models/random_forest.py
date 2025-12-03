@@ -67,7 +67,7 @@ class RandomForestModel:
         print("Gráfico guardado exitosamente como 'smote_comparison.png'")
         plt.close()
 
-    def __test_train_split(self, test_size: float = 0.2, random_state: int = 42):
+    def __train_test_split(self, test_size: float = 0.2, random_state: int = 42):
         X, y = self.__define_features_and_target()
 
         X_train, X_test, y_train, y_test = train_test_split(
@@ -128,7 +128,7 @@ class RandomForestModel:
 
     def train(self):
         # Paso A: Obtener datos preparados (Split + SMOTE)
-        X_train_resampled, X_test, y_train_resampled, y_test = self.__test_train_split()
+        X_train_resampled, X_test, y_train_resampled, y_test = self.__train_test_split()
 
         # Paso B: Entrenar el modelo
         self.__model = self.__train_algorithm(X_train_resampled, y_train_resampled)

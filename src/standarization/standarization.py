@@ -43,7 +43,7 @@ class Standarization:
         print("✔ Tipos de datos verificados.")
 
     def __drop_unused_columns(self):
-        categorical_cols = [
+        unused_cols = [
             "transaction_id",
             "user_id",
             "timestamp",
@@ -55,7 +55,7 @@ class Standarization:
             "authentication_method",
         ]
 
-        self.df = self.df.drop(columns=categorical_cols)
+        self.df = self.df.drop(columns=unused_cols, errors="ignore")
 
     def __detected_outliers_zscore(self):
         # Calcular z-score
