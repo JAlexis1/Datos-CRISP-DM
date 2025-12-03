@@ -1,6 +1,7 @@
 import pandas as pd
 from pathlib import Path
 from src.exploration.descriptive_graphics import DescriptiveGraphics
+from src.standarization.standarization import Standarization
 
 
 if __name__ == "__main__":
@@ -8,6 +9,9 @@ if __name__ == "__main__":
     path_to_data = dir_path / "src" / "synthetic_fraud_dataset.csv"
 
     df = pd.read_csv(path_to_data)
-    
+
     graphics = DescriptiveGraphics(df)
     graphics.save()
+
+    standarization = Standarization(df)
+    standarization.run()
