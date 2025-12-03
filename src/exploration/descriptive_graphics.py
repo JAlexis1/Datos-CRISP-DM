@@ -42,8 +42,10 @@ class DescriptiveGraphics:
             data=plot_df,
             x="Risk_Decile",
             y="Fraud_Label",
+            hue="Risk_Decile",
             palette="Reds",
             errorbar=None,
+            legend=False
         )
 
         plt.title(
@@ -87,9 +89,11 @@ class DescriptiveGraphics:
         sns.barplot(
             x="Failed_Transaction_Count_7d",
             y="Fraud_Label",
+            hue="Failed_Transaction_Count_7d",
             data=self.df,
             palette="Reds",
             errorbar=None,
+            legend=False
         )
 
         plt.title("Probabilidad de fraude según intentos fallidos previos")
