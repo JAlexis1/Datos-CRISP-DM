@@ -1,6 +1,7 @@
 import pandas as pd
 from pathlib import Path
 from src.exploration.descriptive_graphics import DescriptiveGraphics
+from src.models.random_forest import RandomForestModel
 from src.standarization.standarization import Standarization
 
 
@@ -14,4 +15,7 @@ if __name__ == "__main__":
     graphics.save()
 
     standarization = Standarization(df)
-    standarization.run()
+    standarized_df = standarization.run()
+
+    model = RandomForestModel(df=standarized_df)
+    model.train()
